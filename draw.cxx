@@ -1,5 +1,5 @@
 //
-//---- plot pedestals
+//---- plot Laser
 //
 
 void draw(std::string nameInputFile = "Laser2017_noTP.root", int ix = 62, int iy = 50,  int iz = 1) {

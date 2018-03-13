@@ -11,7 +11,10 @@ Plot:
 
     r00t draw.cxx
     r00t draw.cxx\(\"Laser2017_noTP.root\",62,50,1\)
-    r00t draw.cxx\(\"transp2017-prompt.root\",62,50,1\)
+    
+    
+    r00t drawComparison.cxx\(\"Laser2017_noTP.root\",\"transp2017-prompt.root\",62,50,1\)
+    r00t drawComparison.cxx\(\"Laser2017_noTP.root\",\"transp2017-prompt.root\",62,50,1\)
     
 where:
 
