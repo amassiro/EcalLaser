@@ -12,9 +12,17 @@ Plot:
     r00t draw.cxx
     r00t draw.cxx\(\"Laser2017_noTP.root\",62,50,1\)
     
+    EE
+    r00t drawComparison.cxx\(\"Laser2017_noTP.root\",\"transp2017-prompt.root\",62,50,1\)
+    r00t drawComparison.cxx\(\"Laser2017_noTP.root\",\"transp2017-prompt.root\",62,50,1\)
+    r00t drawComparison.cxx\(\"Laser2017_noTP.root\",\"transp2017-prompt.root\",73,91,-1\)
+    ix=73, iy=91, iz=-1
     
-    r00t drawComparison.cxx\(\"Laser2017_noTP.root\",\"transp2017-prompt.root\",62,50,1\)
-    r00t drawComparison.cxx\(\"Laser2017_noTP.root\",\"transp2017-prompt.root\",62,50,1\)
+    EB
+    r00t drawComparison.cxx\(\"Laser2017_noTP.root\",\"transp2017-prompt.root\",82,120,0\)
+    
+    
+    
     
 where:
 
