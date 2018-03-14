@@ -38,11 +38,11 @@ void drawComparison(std::string nameInputFile = "Laser2017_noTP.root", std::stri
   if (isEB == 0) toCut = Form ("ix==%d && iy==%d && iz==%d", ix, iy, iz);
   if (isEB == 1) toCut = Form ("ix==%d && iy==%d && iz==%d", ix, iy, iz);
   
-  std::cout << " toDraw = " << toDraw.Data() << std::endl;
-  std::cout << " toCut  = " << toCut.Data()  << std::endl;
+  std::cout << "   toDraw = " << toDraw.Data() << std::endl;
+  std::cout << "   toCut  = " << toCut.Data()  << std::endl;
   
   ntu->Draw(toDraw.Data(), toCut.Data(), "goff");
-  std::cout << " ntu->GetSelectedRows() = " << ntu->GetSelectedRows() << std::endl;
+  std::cout << "   ntu->GetSelectedRows() = " << ntu->GetSelectedRows() << std::endl;
   
   TGraph *gr_laser  = new TGraph(ntu->GetSelectedRows(), ntu->GetV2(), ntu->GetV1());  
   
@@ -56,10 +56,10 @@ void drawComparison(std::string nameInputFile = "Laser2017_noTP.root", std::stri
   if (isEB == 0) toCut = Form ("x==%d && y==%d && z==%d", ix, iy, iz);
   if (isEB == 1) toCut = Form ("eta==%d && phi==%d", ix, iy);
   
-  std::cout << " toDraw = " << toDraw.Data() << std::endl;
-  std::cout << " toCut  = " << toCut.Data()  << std::endl;  
+  std::cout << "   toDraw = " << toDraw.Data() << std::endl;
+  std::cout << "   toCut  = " << toCut.Data()  << std::endl;  
   ntu2->Draw(toDraw.Data(), toCut.Data(), "goff");
-  std::cout << " ntu2->GetSelectedRows() = " << ntu2->GetSelectedRows() << std::endl;
+  std::cout << "   ntu2->GetSelectedRows() = " << ntu2->GetSelectedRows() << std::endl;
   
   TGraph *gr_laser2  = new TGraph(ntu2->GetSelectedRows(), ntu2->GetV2(), ntu2->GetV1());  
   
