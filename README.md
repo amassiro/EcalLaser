@@ -25,6 +25,10 @@ Plot:
     r00t drawComparison.cxx\(\"Laser2017_noTP.root\",\"transp2017-prompt-all.root\",82,120,0\)
     r00t drawComparison.cxx\(\"Laser2017_noTP.root\",\"transp2017-prompt-all.root\",20,120,0\)
     
+    r00t drawComparison.cxx\(\"Laser2017_noTP.root\",\"transp2017-prompt-all.root\",-3,25,0\)
+    
+    r00t drawComparison.cxx\(\"Laser2017_noTP.root\",\"transp2017-prompt-all.root\",-3,25,0\)
+    
     
     
     

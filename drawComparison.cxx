@@ -94,6 +94,98 @@ void drawComparison(std::string nameInputFile = "Laser2017_noTP.root", std::stri
   cclaser->SetGrid();
   
   
+  
+  TCanvas* cclaserratio = new TCanvas ("cclaserratio","",1600,600);
+  TGraph *gr_laser_ratio  = new TGraph();
+  TGraph *gr_laser_difference  = new TGraph();
+  
+  int totpoints = ntu2->GetSelectedRows();
+  int totpoints2 = totpoints;
+  if (totpoints > ntu->GetSelectedRows()) {
+    totpoints = ntu->GetSelectedRows();
+  }
+  int ipoint = 0;
+  int jpoint = 0;
+  int lastjpoint = 0;
+  for (int i=0; i<totpoints; i++) {
+    //---- 30 minutes window  30 * 60 seconds
+//     for (int j=lastjpoint; j<(lastjpoint+10); j > lastjpoint ?  j += ((lastjpoint - j)*2 ) : j += ((lastjpoint - j)*2 + 1) ) {
+//       std::cout << " i = " << i << std::endl;
+//       std::cout << " j = " << j << std::endl;
+//             std::cout << "     lastjpoint = " << lastjpoint << std::endl;
+//             std::cout << "     j >= lastjpoint    = " << int(j >= lastjpoint) << std::endl;
+//             std::cout << "     ((lastjpoint - j)*2 + 1) = " << ((lastjpoint - j)*2 + 1) << std::endl;
+//             std::cout << "     ((lastjpoint - j)*2 + 1) = " << ((lastjpoint - j)*2 + 1) << std::endl;
+//       
+      //
+      //           x
+      //
+      for (int j=(lastjpoint-100); j<(lastjpoint+100); j++) {
+      if (j<0) j = 0;
+      if ( j < totpoints2 ) {
+        if ( abs(ntu->GetV2()[j] - ntu2->GetV2()[i]) <  60*30) {   
+          gr_laser_ratio->SetPoint      (ipoint, ntu2->GetV2()[j], (ntu2->GetV1()[i] ? ntu->GetV1()[i] / ntu2->GetV1()[j] : 0) );  
+          gr_laser_difference->SetPoint (ipoint, ntu2->GetV2()[j], ntu->GetV1()[i] - ntu2->GetV1()[j] );  
+          ipoint++;
+          
+          jpoint=j;
+          jpoint++;
+          
+          lastjpoint=j;
+          
+          break;        
+        }
+      }
+    }
+  }
+  std::cout << " ipoint = " << ipoint << std::endl;
+  std::cout << " jpoint = " << jpoint << std::endl;
+  
+  
+  gr_laser_ratio->SetMarkerSize  (0.2);               
+  gr_laser_ratio->SetMarkerStyle (21);              
+  gr_laser_ratio->SetMarkerColor (kMagenta);            
+  gr_laser_ratio->SetLineWidth (1);                 
+  gr_laser_ratio->SetLineColor (kMagenta);              
+  
+  
+  gr_laser_ratio->Draw("AP");
+  gr_laser_ratio->GetYaxis()->SetTitle("transparency ratio");
+  gr_laser_ratio->GetXaxis()->SetTitle("time");
+  gr_laser_ratio->GetXaxis()->SetTimeDisplay(1);
+  gr_laser_ratio->GetXaxis()->SetNdivisions(-503);
+  gr_laser_ratio->GetXaxis()->SetTimeFormat("%Y-%m-%d %H:%M");
+  gr_laser_ratio->GetXaxis()->SetTimeOffset(0,"gmt");
+  cclaserratio->SetGrid();
+  
+
+
+
+
+  TCanvas* cclaserdifference = new TCanvas ("cclaserdifference","",1600,600);
+  
+  gr_laser_difference->SetMarkerSize  (0.2);               
+  gr_laser_difference->SetMarkerStyle (21);              
+  gr_laser_difference->SetMarkerColor (kMagenta);            
+  gr_laser_difference->SetLineWidth (1);                 
+  gr_laser_difference->SetLineColor (kMagenta);              
+  
+  
+  gr_laser_difference->Draw("AP");
+  gr_laser_difference->GetYaxis()->SetTitle("transparency difference");
+  gr_laser_difference->GetXaxis()->SetTitle("time");
+  gr_laser_difference->GetXaxis()->SetTimeDisplay(1);
+  gr_laser_difference->GetXaxis()->SetNdivisions(-503);
+  gr_laser_difference->GetXaxis()->SetTimeFormat("%Y-%m-%d %H:%M");
+  gr_laser_difference->GetXaxis()->SetTimeOffset(0,"gmt");
+  cclaserdifference->SetGrid();
+  
+  
+  
+  
+  
+  
+  
     
 }
 
