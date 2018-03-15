@@ -113,20 +113,19 @@ void drawComparison(std::string nameInputFile = "Laser2017_noTP.root", std::stri
   int lastjpoint = 0;
   for (int i=0; i<totpoints; i++) {
     //---- 30 minutes window  30 * 60 seconds
-//     for (int j=lastjpoint; j<(lastjpoint+10); j > lastjpoint ?  j += ((lastjpoint - j)*2 ) : j += ((lastjpoint - j)*2 + 1) ) {
+    for (int j=lastjpoint; j<(lastjpoint+10); j > lastjpoint ?  j += ((lastjpoint - j)*2 ) : j += ((lastjpoint - j)*2 + 1 ) ) {
 //       std::cout << " i = " << i << std::endl;
 //       std::cout << " j = " << j << std::endl;
 //             std::cout << "     lastjpoint = " << lastjpoint << std::endl;
-//             std::cout << "     j >= lastjpoint    = " << int(j >= lastjpoint) << std::endl;
-//             std::cout << "     ((lastjpoint - j)*2 + 1) = " << ((lastjpoint - j)*2 + 1) << std::endl;
-//             std::cout << "     ((lastjpoint - j)*2 + 1) = " << ((lastjpoint - j)*2 + 1) << std::endl;
-//       
+//             std::cout << "     j >  lastjpoint    = " << int(j >  lastjpoint) << std::endl;
+//             std::cout << "     ((lastjpoint - j)*2    ) = " << ((lastjpoint - j)*2    ) << " ---> " <<  j + ((lastjpoint - j)*2    )  << std::endl;
+//             std::cout << "     ((lastjpoint - j)*2 + 1) = " << ((lastjpoint - j)*2 + 1) << " ---> " <<  j + ((lastjpoint - j)*2 +1 )  << std::endl;
+            //       
       //
       //           x
       //
-      for (int j=(lastjpoint-10); j<(lastjpoint+10); j++) {
-      if (j<0) j = 0;
-      if ( j < totpoints2 ) {
+//       for (int j=(lastjpoint-10); j<(lastjpoint+10); j++) {
+      if ((j>=0) && (j<totpoints2) ) {
         if ( abs(ntu->GetV2()[i] - ntu2->GetV2()[j]) <  60*30) {   
           gr_laser_ratio->SetPoint      (ipoint, ntu->GetV2()[i], (ntu2->GetV1()[j] ? ntu->GetV1()[i] / ntu2->GetV1()[j] : 0) );  
           gr_laser_difference->SetPoint (ipoint, ntu->GetV2()[i], ntu->GetV1()[i] - ntu2->GetV1()[j] );  
@@ -222,8 +221,8 @@ void drawComparison(std::string nameInputFile = "Laser2017_noTP.root", std::stri
   TCanvas* cclasercomp = new TCanvas ("cclasercomp","laser comp",1600,600);
   
   gr_laser_1->Draw("AP");
-  gr_laser_2->Draw("P");
   gr_laser_2_1time->Draw("P");
+  gr_laser_2->Draw("P");
   gr_laser_1->GetYaxis()->SetTitle("transparency");
   gr_laser_1->GetXaxis()->SetTitle("time");
   gr_laser_1->GetXaxis()->SetTimeDisplay(1);
