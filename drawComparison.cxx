@@ -126,7 +126,8 @@ void drawComparison(std::string nameInputFile = "Laser2017_noTP.root", std::stri
       //
 //       for (int j=(lastjpoint-10); j<(lastjpoint+10); j++) {
       if ((j>=0) && (j<totpoints2) ) {
-        if ( abs(ntu->GetV2()[i] - ntu2->GetV2()[j]) <  60*30) {   
+        if ( abs(ntu->GetV2()[i] - ntu2->GetV2()[j]) <  60*25) {   
+//           if ( abs(ntu->GetV2()[i] - ntu2->GetV2()[j]) <  60*30) {   
           gr_laser_ratio->SetPoint      (ipoint, ntu->GetV2()[i], (ntu2->GetV1()[j] ? ntu->GetV1()[i] / ntu2->GetV1()[j] : 0) );  
           gr_laser_difference->SetPoint (ipoint, ntu->GetV2()[i], ntu->GetV1()[i] - ntu2->GetV1()[j] );  
           
