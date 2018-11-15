@@ -40,7 +40,8 @@ void draw(std::string nameInputFile = "Laser2017_noTP.root", int ix = 62, int iy
   //---- style (end) ----
   
   
-  TCanvas* cclaser = new TCanvas ("cclaser","",1600,600);
+  TCanvas* cclaser = new TCanvas ("cclaser", toCut.Data(), 1600, 600);
+  gr_laser->SetTitle(toCut.Data());
   gr_laser->Draw("AP");
   gr_laser->GetYaxis()->SetTitle("transparency");
   gr_laser->GetXaxis()->SetTitle("time");

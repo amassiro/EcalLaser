@@ -43,8 +43,12 @@ Plot:
 Check single crystal history:
 
     r00t draw.cxx\(\"LaserBlue_noTP_2017_newformat.root\",65,36,-1\)
+
     r00t draw.cxx\(\"LaserBlue_noTP_2017_newformat.root\",65,35,-1\)
     r00t draw.cxx\(\"LaserBlue_noTP_2017_newformat.root\",65,37,-1\)
+
+    r00t draw.cxx\(\"LaserBlue_noTP_2017_newformat.root\",64,36,-1\)
+    r00t draw.cxx\(\"LaserBlue_noTP_2017_newformat.root\",66,36,-1\)
 
     
     
