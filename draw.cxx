@@ -13,7 +13,7 @@ void draw(std::string nameInputFile = "Laser2017_noTP.root", int ix = 62, int iy
   TFile* fileIn = new TFile(nameInputFile.c_str(), "READ");
   TTree* ntu      = (TTree*) fileIn -> Get ("ntu");
   
-  
+  std::cout << " entries = " << ntu->GetEntries() << std::endl;
   
   TString laser_string  = Form ("nrv");
   TString time_string  = Form ("time[0]");
