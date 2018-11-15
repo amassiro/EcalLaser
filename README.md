@@ -7,11 +7,16 @@ Ntuple example:
     scp amassiro@lxplus.cern.ch:/eos/cms/store/group/dpg_ecal/comm_ecal/pedestals_gainratio/Laser2017_noTP.root .
     scp amassiro@lxplus.cern.ch:/eos/cms/store/group/dpg_ecal/comm_ecal/trigger/lkardapo/tuples/transp2017-prompt.root  .
 
+    scp amassiro@lxplus.cern.ch:/eos/cms/store/group/dpg_ecal/comm_ecal/pedestals_gainratio/LaserBlue_noTP_2017_newformat.root /media/amassiro/SAMSUNG/data/ECAL/Laser/
+    
+    
+    
+    
 Plot:
 
     r00t draw.cxx
     r00t draw.cxx\(\"Laser2017_noTP.root\",62,50,1\)
-    
+
     red = noTP 
     blue = prompt
     
@@ -34,9 +39,13 @@ Plot:
     r00t drawComparison.cxx\(\"Laser2017_noTP.root\",\"transp2017-prompt-all.root\",-3,25,0\)
     
     
-    
+
+Check single crystal history:
+
+    r00t draw.cxx\(\"LaserBlue_noTP_2017_newformat.root\",65,36,-1\)
+
     
     
 where:
 
-    /home/amassiro/Cern/Code/ECAL
+    /home/amassiro/Cern/Code/ECAL/EcalLaser/
