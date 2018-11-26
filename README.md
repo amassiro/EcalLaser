@@ -9,6 +9,8 @@ Ntuple example:
 
     scp amassiro@lxplus.cern.ch:/eos/cms/store/group/dpg_ecal/comm_ecal/pedestals_gainratio/LaserBlue_noTP_2017_newformat.root /media/amassiro/SAMSUNG/data/ECAL/Laser/
     
+    scp amassiro@lxplus.cern.ch:/eos/cms/store/group/dpg_ecal/comm_ecal/pedestals_gainratio/DumpLaserDB.root /media/amassiro/SAMSUNG/data/ECAL/Laser/
+    ln -s /media/amassiro/SAMSUNG/data/ECAL/Laser/DumpLaserDB.root  DumpLaserDB_26Nov2018.root
     
     
     
@@ -50,6 +52,12 @@ Check single crystal history:
     r00t draw.cxx\(\"LaserBlue_noTP_2017_newformat.root\",64,36,-1\)
     r00t draw.cxx\(\"LaserBlue_noTP_2017_newformat.root\",66,36,-1\)
 
+    
+    
+    r00t draw.cxx\(\"DumpLaserDB_26Nov2018.root\",66,36,-1\)
+
+
+    
     
     
 where:
